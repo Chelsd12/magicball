@@ -17,28 +17,31 @@
 class Eight_ball
 
     def initialize 
-      question
+      
+      @some_answers = [
+      "That's a great idea!",
+      "Wrong choice.",
+      "Try again",
+      "The future will be made clear to you",
+      "Daaaahbears"
+  ]
+  question
     end
   
     def question
       puts "Please ask a question: "
-      a_question = gets.to_i
-      random_answers(a_question)
+      a_question = gets.strip
+      random_answers
     end
   
-    def random_answers(a_question)
-      # case computer_answers
-      # when ''
-      #   puts @some_answers
-      # end
-      @some_answers.sample
+    def random_answers
+      # item = @some_answers[rand(@some_answers.length)]
+      puts @some_answers.sample(1 + rand(@some_answers.count))
+      
     end
   
-    @some_answers = [
-    "you are a women",
-    "the future will be made clear to you",
-    "daaaahbears"
-  ]
+
+    
   
   
     def quits
