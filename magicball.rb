@@ -16,36 +16,55 @@
 
 class Eight_ball
 
-    def initialize 
-      
-      @some_answers = [
-      "That's a great idea!",
-      "Wrong choice.",
-      "Try again",
-      "The future will be made clear to you",
-      "Daaaahbears"
-  ]
-  question
-    end
-  
-    def question
-      puts "Please ask a question: "
-      a_question = gets.strip
-      random_answers
-    end
-  
-    def random_answers
-      # item = @some_answers[rand(@some_answers.length)]
-      puts @some_answers.sample(1 + rand(@some_answers.count))
-      
-    end
-  
-
-    
-  
-  
-    def quits
-    end
+  def initialize
+    @clone_array = []
+    @some_answers = [
+    "That's a great idea!",
+    "Wrong choice.",
+    "Try again",
+    "The future will be made clear to you",
+    "Daaaahbears"
+    ]
+    question
   end
-  
-  solution = Eight_ball.new
+
+  def question
+    puts "Please ask a question: "
+    a_question = gets.strip
+    random_answers
+  end
+
+  def random_answers
+    puts "Your answer is:"
+    puts @some_answers[rand(@some_answers.length)]
+  second_question
+  end
+
+  def second_question
+    puts "Would you like to ask another question? Type yes\n OR Would you like to add an answer type sure OR type quit."
+    selection = gets.strip.downcase
+      if selection == "yes"
+        question
+      elsif selection =="sure"
+        add_answer
+      else
+        puts "Goodbye"
+      end
+  end
+
+  def add_answer
+    @clone_array = @some_answers.clone
+    puts "Please type in a new answer"
+    answer = gets
+    if @some_answers.include? answer.downcase
+        puts "Already an answer, try again"
+        add_answer
+    else
+      @some_answers << answer
+      puts @some_answers
+    end 
+  end
+
+end
+
+solution = Eight_ball.new
