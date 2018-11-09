@@ -41,11 +41,19 @@ class Eight_ball
   end
 
   def second_question
+<<<<<<< Updated upstream
     puts "Would you like to ask another question? Type yes\n OR Would you like to add an answer type sure OR type quit."
     selection = gets.strip.downcase
       if selection == "yes"
         question
       elsif selection =="sure"
+=======
+    puts "Would you like to ask another question? Type yes\n Would you like to add an answer? Type sure OR type quit."
+    selection = gets.strip.downcase
+      if selection == "yes"
+        question
+      elsif selection == "sure"
+>>>>>>> Stashed changes
         add_answer
       else
         puts "Goodbye"
@@ -56,7 +64,11 @@ class Eight_ball
     @clone_array = @some_answers.clone
     puts "Please type in a new answer"
     answer = gets
+<<<<<<< Updated upstream
     if @some_answers.include? answer.downcase
+=======
+    if @some_answers.includes? answer.downcase
+>>>>>>> Stashed changes
         puts "Already an answer, try again"
         add_answer
     else
